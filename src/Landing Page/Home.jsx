@@ -8,27 +8,27 @@ import Arrivals from './Arrivals';
 import Subscription from './Subscription';
 import SeedGram from './SeedGram';
 import NewsLetter from './NewsLetter';
-import Footer from './Footer';
+
 
 
 const Home = () => {
     return (
         <>
             <div
-            className="min-h-screen bg-no-repeat bg-center bg-cover flex items-center justify-center"
-            style={{ backgroundImage: `url(${bgImage})` }}
+            className="h-screen w-full bg-no-repeat bg-center bg-cover flex items-center justify-center"
+            style={{ backgroundImage: `url(${bgImage})`, backgroundAttachment:'fixed'}}
             >
 
             <div className="text-center text-white z-10">
-                <h1 className="text-6xl">
+                <h1 className="text-6xl font-cormorant">
                 Is There Such a Thing as 
                     <br/>
                 Too Many Plants
                 </h1>
-                <p>
+                <p className='font-jost'>
                 Discover the latest addition to your growing plant collection
                 </p>
-                <button className='text-md text-white border border-white p-1 rounded mt-15 cursor-pointer hover:bg-gray-400 hover:text-black'>
+                <button className='text-md text-white border border-white p-1 rounded mt-15 cursor-pointer hover:bg-black/40'>
                     Shop Plants
                 </button>
             </div>
@@ -41,7 +41,6 @@ const Home = () => {
         <Guide/>
         <SeedGram/>
         <NewsLetter/>
-        <Footer/>
         </>
     )
 }
