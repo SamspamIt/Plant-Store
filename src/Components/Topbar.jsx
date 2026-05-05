@@ -1,40 +1,30 @@
-import React, { useState, useEffect } from 'react'
-
-const announcements = [
-    {
-        bg: 'bg-orange-500',
-        text: 'Free Shipping on orders over $75',
-        btn: null
-    },
-    {
-        bg: 'bg-[#6B7C45]',
-        text: 'Get 15% off on your first order!',
-        btn: 'Sign Up'
-    },
-    ]
+import React, {useState , useEffect} from 'react';
 
 const Topbar = () => {
-    const [current, setCurrent] = useState(0)
+    const [step, setStep] = useState(0);
 
     useEffect(() => {
-        const timer = setInterval(() => {
-        setCurrent(prev => (prev + 1) % announcements.length)
-        }, 5000)
-        return () => clearInterval(timer)
-    }, [])
+        const interval = setInterval(() => {
+        setStep((prev) => (prev === 0 ? 1 : 0));
+        }, 5000); // 3 sec me change
 
-    const { bg, text, btn } = announcements[current]
-
+        return () => clearInterval(interval);
+    }, []);
     return (
-        <div className={`${bg} text-white text-xs py-2 flex items-center justify-center gap-4 transition-colors duration-700 w-full`}>
-        <p className="tracking-wide font-jost">{text}</p>
-        {btn && (
-            <button className="border border-white text-white text-xs px-3 py-1 rounded hover:bg-white hover:text-black transition duration-300 cursor-pointer">
-            {btn}
-            </button>
-        )}
+        <div className={`text-white text-center text-sm px-3  py-1 transition-all duration-700 ${
+            step === 0 ? "bg-orange-600" : "bg-[#6b6f3f]"}`}>
+            {step === 0 ? (
+            <p>Free Shipping on orders over $75</p>
+            ) : (
+            <div className="flex justify-center items-center gap-4">
+                <p>Get 15% off your first purchase</p>
+                <button className="border px-3  text-xs hover:bg-white hover:text-black transition">
+                    Sign Up
+                </button>
+            </div>
+            )}
         </div>
     )
-    }
+}
 
-    export default Topbar
+export default Topbar

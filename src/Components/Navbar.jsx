@@ -15,7 +15,7 @@ const Navbar = () => {
                     <Link to='/plants' className='hover:bg-orange-700'>Plants</Link>
                     <Link to='/pots' className='hover:bg-orange-700'>Pots</Link>
                     <Link to='/sale' className='hover:bg-orange-700'>Sale</Link>
-                    <Link to='/subscription' className='hover:bg-orange-700'>Subscription</Link>
+                    <Link to='/subscriptions' className='hover:bg-orange-700'>Subscriptions</Link>
                     <Link to='/care' className='hover:bg-orange-700'>Care</Link>
             </div>
 
